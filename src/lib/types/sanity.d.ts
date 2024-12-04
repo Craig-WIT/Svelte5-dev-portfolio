@@ -157,4 +157,3 @@ export type SanityImagePaletteSwatch = {
     | SanityAssetSourceData
     | DevExperience
   export declare const internalGroqTypeReferenceTo: unique symbol
-  
