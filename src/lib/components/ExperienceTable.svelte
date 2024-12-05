@@ -1,8 +1,6 @@
 <script lang="ts">
-  import type { DevExperience } from "$lib/types/sanity";
-
   interface ExperienceTableProps {
-      workExperience: DevExperience[];
+      workExperience: SanityWorkExperience[];
     };
 
     let { workExperience }: ExperienceTableProps = $props();
@@ -17,8 +15,8 @@
             <div class="company-and-date">
               <p>{job.company}</p>
               <p class="dark-grey">
-                {job.startDate}
-                {#if job.endDate} / {job.endDate} 
+                {job.startDate.slice(0,7)}
+                {#if job.endDate} / {job.endDate.slice(0,7)} 
                 {:else} / present {/if}
               </p>
             </div>

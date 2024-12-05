@@ -9,3 +9,7 @@ const config: ClientConfig = {
 
 const sanityClient = createClient(config);
 export default sanityClient;
+
+export function processProjectEntries(rawProject: SanityProject) {
+    const processedProject: ProcessedProject = 
+}
