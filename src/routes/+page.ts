@@ -7,12 +7,10 @@ export const load:PageLoad = async () => {
     const rawProject: SanityProject[] = await sanityClient.fetch('*[_type == "project"]')
 
     const projects = rawProject.map(processProjectEntries)
-    
-    console.log(rawProject[0])
-    console.log(projects[0])
 
     return {
         workExperience,
+        projects,
     };
 
 };
