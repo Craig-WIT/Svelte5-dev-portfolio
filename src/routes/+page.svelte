@@ -3,8 +3,6 @@
 
   const { data } = $props();
 
-  console.log(data)
-
   let { workExperience, projects } = data;
 
 </script>

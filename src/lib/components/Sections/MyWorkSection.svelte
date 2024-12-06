@@ -1,7 +1,6 @@
 <script lang="ts">
   import SectionHeader from "$components/SectionHeader.svelte";
 
-
 interface MyWorkSectionProps {
       projects: ProcessedProject[];
     };

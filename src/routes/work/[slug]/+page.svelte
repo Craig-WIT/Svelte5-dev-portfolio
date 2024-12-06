@@ -1,3 +1,7 @@
+<script>
+  const {data} = $props();
+</script>
+
 <style>
   .work-page {
     padding-top: 80px;
