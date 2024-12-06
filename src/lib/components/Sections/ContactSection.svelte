@@ -1,3 +1,54 @@
+<script lang="ts">
+  import Button from "$components/Button.svelte";
+  import SectionHeader from "$components/SectionHeader.svelte";
+
+  let contactName = $state("");
+  let contactEmail = $state("");
+  let projectInformation = $state("");
+  let isFormInvalid = $state(false);
+
+  function onSubmit(event:Event) {
+    event.preventDefault();
+
+    if(contactName && contactEmail && projectInformation) {
+      fetch("/api/send-mail")
+    } else {
+      isFormInvalid = true;
+    }
+  }
+
+  $effect(() => {
+    if (contactName || contactEmail || projectInformation) {
+      isFormInvalid = false;
+    }
+  })
+
+  $inspect(isFormInvalid)
+</script>
+
+<section class="mt-l">
+  <SectionHeader sectionName={"contact-form"}>Let's talk</SectionHeader>
+  <div class="form-container default-margin mt-m">
+    <form>
+      <input type="text" class:input-error={isFormInvalid && !Boolean(contactName.length)} class="text-input mb-m" placeholder="Your Name" bind:value={contactName}>
+      <input type="text" class:input-error={isFormInvalid && !Boolean(contactEmail.length)} class="text-input mb-m" placeholder="Your Email" bind:value={contactEmail}>
+      <textarea class:input-error={isFormInvalid && !Boolean(projectInformation.length)} placeholder="Tell me what's up" bind:value={projectInformation}></textarea>
+        <Button onclick={onSubmit}>Submit</Button>
+    </form>
+    <div class="form-text">
+      <h3 class="mb-m">Talk to me about your project</h3>
+      <p>
+        I'm always excited to hear about new and innovative ideas! Whether
+        you're in the early stages of planning or have a well-defined project,
+        I'm here to help bring your vision to life. Feel free to drop me a
+        message with some details about your project, and let's start a
+        conversation about how we can work together. I look forward to
+        connecting with you and discussing the possibilities. Talk to you soon!
+      </p>
+    </div>
+  </div>
+</section>
+
 <style>
   section {
     padding-bottom: 140px;
