@@ -53,6 +53,12 @@ type SanityProject = {
     stack: Array<string>
   }
 
+  interface Skill {
+    name: string
+    iconClass: string
+    _key: string
+  }
+
   interface RawTextContent {
         children: Array<{
           marks?: Array<string>

@@ -1,3 +1,26 @@
+<script lang="ts">
+  import SectionHeader from "$components/SectionHeader.svelte";
+
+  interface SkillsSectionProps{
+    skills: Skill[]
+  }
+
+  let { skills }:SkillsSectionProps = $props()
+
+  const iconClasses = skills.map(({ iconClass }) => iconClass);
+
+</script>
+
+<SectionHeader sectionName={"my-skills"}>My Skills</SectionHeader>
+<section class="wrapper default-margin">
+  <div class="skills-container">
+    {#each iconClasses as iconClass}
+      <i class={iconClass}></i>
+    {/each}       
+  </div>
+</section>
+
+
 <style>
   .wrapper {
     display: flex;
